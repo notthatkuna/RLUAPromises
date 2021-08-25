@@ -51,11 +51,11 @@ Main module script is held in promise.lua
 
 ## <Object> Promise
   
-  ### <Event> Promise.resolved*:Connect(function(***string** identification, **table** state*)*
+  ### <Event> Promise.resolved * :Connect(function( * **string** identification, **table** state * ) *
   
   Fired when this promise is resolved, identification is the GUID associated with the promise and state is the state (which looks similar to ``{[1]: 'resolved', [2]: 'reason'}``)
   
-  ### <Event> Promise.rejected*:Connect(function(***string** identification, **table** state*)*
+  ### <Event> Promise.rejected * :Connect(function( * **string** identification, **table** state * ) *
   
   The same exact thing as ``Promise.resolved`` except it is fired when the promise is rejected
   
