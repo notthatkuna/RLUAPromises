@@ -55,23 +55,23 @@ Main module script is held in promise.lua
   
   Fired when this promise is resolved, identification is the GUID associated with the promise and state is the state (which looks similar to ``{[1]: 'resolved', [2]: 'reason'}``)
   
-  ### <Event> Promise.rejected * :Connect(function( * **string** identification, **table** state * ) *
+  ### <Event> Promise.rejected:Connect(function( *string* identification, *table* state )
   
   The same exact thing as ``Promise.resolved`` except it is fired when the promise is rejected
   
-  ### <Function> Promise.resolve(**string** reason) -> nil
+  ### <Function> Promise.resolve(*string* reason) -> nil
   
   Resolves the current promise and fires the ``Promise.resolved`` event. This function will error if the promise is not unresolved
   
-  ### <Function> Promise.reject(**string** reason) -> nil
+  ### <Function> Promise.reject(*string* reason) -> nil
   
   Rejects the current promise and fires the ``Promise.rejected`` event. This function will error if the promise is not unresolved
   
-  ### <Function> Promise.getstate() -> ``{ [1]: string CurrentState, [2}: string CurrentReason }``
+  ### <Function> Promise.getstate() -> { [1]: string CurrentState, [2}: string CurrentReason }
   
   Gets the state table of the promise
   
-  ### <Function> Promise.setFunction(**function** f) -> nil
+  ### <Function> Promise.setFunction(*function* f) -> nil
   
   Assigns function ``f`` to the promise, required for use of the function ``Promise.execute()``
   
