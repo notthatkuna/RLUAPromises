@@ -82,3 +82,8 @@ Main module script is held in promise.lua
   ### <Function> Promise.isUnresolved() -> boolean
   
   If the promise is unresolved, return true, otherwise return false
+	
+
+
+# Important notes
+* Promise.execute() runs asynchronously from the thread it was called in, meaning your script will not wait for the function inside of .execute() to finish. To avoid this problem, create a variable that changes when the promise's ``resolved/rejected`` events are fired, and ``repeat wait() until $VARIABLE$``
