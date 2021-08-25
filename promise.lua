@@ -1,6 +1,15 @@
 local promise = {}
 local all = {}
 
+if not game.ServerScriptService:FindFirstChild("promiseFolder") then
+	local pf = Instance.new("Folder",game:GetService("ServerScriptService"))
+	pf.Name = "promiseFolder"
+	local ev1 = Instance.new("BindableEvent",pf)
+	ev1.Name = "rejected"
+	local ev2 = Instance.new("BindableEvent", pf)
+	ev2.Name = "resolved"
+end
+
 function promise.new()
 	local newpromise = {}
 	newpromise.db = false
