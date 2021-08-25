@@ -42,7 +42,7 @@ Main module script is held in promise.lua
   
   ### <Object> PromiseModule.new()
   
-  	Returns a new promise object
+  Returns a new promise object
   
   ### <Function> PromiseModule.resolveAll(string reason, boolean usepcall)
   
