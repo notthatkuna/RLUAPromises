@@ -64,6 +64,21 @@ function promise.new()
 	function newpromise.isUnresolved()
 		if newpromise.getstate()[1] == 'unresolved' then return true else return false end
 	end
+	function newpromise._then_(f,timeout)
+		if typeof(f) ~= "function" then nError("function in function Promise._then_(function) was nil or not a function") end
+		spawn(function()
+			local l = 0
+			repeat
+				wait(1)
+				l = l + 1
+			until newpromise.isUnresolved() == false
+			if l <= timeout then
+				spawn(function()
+					f()
+				end)
+			end
+		end)
+	end
 	table.insert(all,newpromise)
 	return newpromise
 end
