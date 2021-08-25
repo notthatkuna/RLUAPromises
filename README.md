@@ -30,8 +30,11 @@ p1.rejected:Connect(function(identification,state)
 	print(identification.." was rejected with reason: "..state[2])
 end)
 
+p1._then_(function()
+	print("This is an easier way to generally tell if a promise has been completed (not specifically resolved or rejected, just completed")
+end,math.huge) -- timeout is math.huge
+
 p1.execute()
-print("This print was ran after the .execute(*) function, and it runs asynchronously from eachother because the function assigned to the Promise is wrapped in a spawn(function() end), meaning if you want the promise to work correctly you need to make a variable and discontinue execution until the variable becomes true.")
 ```
 
 Main module script is held in promise.lua
