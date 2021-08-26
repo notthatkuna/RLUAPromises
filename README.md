@@ -86,7 +86,7 @@ Main module script is held in promise.lua
   
   If the promise is unresolved, return true, otherwise return false
 	
-  ### <Function> Promise._then_(*function* f, *timeout (seconds)* timeout)
+  ### <Function> Promise.\_then\_(*function* f, *timeout (seconds)* timeout)
 	
   Executes ``f`` after the promise's state is no longer ``unresolved``, meaning either ``resolved`` or ``rejected``. ``timeout`` will not run the function unless the promise's execution time is under ``timeout`` which is in seconds form. I added this for a more general way to tell if a promise has completed without using individual events.
 	
