@@ -50,6 +50,10 @@ Main module script is held in promise.lua
   ### <Function> PromiseModule.resolveAll(string reason, boolean usepcall)
   
   Resolves all promise objects that were created for this module, even if they are unresolved. Set ``usepcall`` to true if you want to ignore errors from setting resolved/rejected promises' states. This will also make the function return a table which contains every error received in the pcall function. **This function is very buggy and should not be used. The reason there is no Promise.rejectAll() is because the resolved/rejected event for each promise fires with the number of promises that exist. For example, if there are 3 promises created by this module, then each promise's .resolved event will be fired 3 times each.**
+	
+  ### <Function> PromiseModule.discontinue(string reason) -> <Table>discontinue_log
+	
+  Rejects all alive promises and stops new promises from being created, either by PromiseModule.new() or by directly adding it to the table. Also metatable locks the promise table.
   
 
 ## <Object> Promise
