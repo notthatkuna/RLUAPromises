@@ -1,6 +1,25 @@
 # RLUAPromises
 My attempt at creating promises in Roblox Lua
 
+# RLUAPromises V2 is now out!
+
+RLUAPromises V2 is better for syntax and has less functions for ease of use. Find it in promiseV2.lua.
+
+EXAMPLE SCRIPT OF V2:
+```lua
+local promise = require(script.Parent.promise)
+
+print(Promise(function()
+	-- New module utilized the SETFENV function, so now you don't have to declare any upper-scope variables to resolve itself.
+	task.wait(1)
+	CurrentPromise.resolve()
+end).finally(function(...)
+	print(...) -- If resolved, prints ReturnState<bool>, otherwise prints Tuple( ReturnState<bool>, Message<string> )
+end).Active) -- prints TRUE because the promise has not been resolved/rejected yet (Promise.Active<bool>)
+
+-- The ".finally()" function will return the PROMISE table each time it is called, so you can stack functions on top of each-other or reference variables just like in JavaScript!
+```
+
 Example script:
 ```lua
 local promise = require(script.Parent.promise)
@@ -40,6 +59,24 @@ p1.execute()
 Main module script is held in promise.lua
 
 # Documentation
+
+# V2
+
+## <Function> PromiseModule(PromiseFunction<function>) -> PromiseTable
+
+  ### Important note: "CurrentPromise" is a variable set at the function's top level scope, so there is no need to declare any variables!
+	
+  ### <Function> PromiseTable.finally(FinalFunction<function>) -> PromiseTable ( inherited from PromiseModule<function>() )
+	
+  Function is called when the PromiseFunction either calls ``PromiseTable.resolve()`` or ``PromiseTable.reject(message<string>)``
+	
+  ### <Function> PromiseTable.resolve() -> PromiseTable ( inherited from PromiseModule<function>() )
+	
+  Resolves the promise and yields the internal coroutine
+
+  ### <Function> PromiseTable.reject(message<string>) -> PromiseTable ( inherited from PromiseModule<function>() )
+	
+  Rejects the promise and yields the internal coroutine
 
 ## <Object> PromiseModule
   
